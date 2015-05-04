@@ -9,7 +9,16 @@ angular.module('bookmanagerApp', [
 ])
   .config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
     $urlRouterProvider
-      .otherwise('/');
-
+      .when('/', {
+        templateUrl: 'main/main.html',
+        controller: 'MainCtrl'
+      })
+      .when('/mybooks', {
+        templateUrl: 'mybooks/mybooks.html',
+        controller: 'MyBooksCtrl'
+      })
+      .otherwise({
+        redirectTo: '/'
+      });
     $locationProvider.html5Mode(true);
   });
