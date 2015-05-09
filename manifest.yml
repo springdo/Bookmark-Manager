@@ -1,6 +1,7 @@
 applications:
 - services:
   - mongodb-6n
+  command: node ./server/app.js
   disk_quota: 1024M
   host: bookmanager-app
   name: bookmanager-app
@@ -8,4 +9,6 @@ applications:
   domain: mybluemix.net
   instances: 1
   memory: 256M
-
+  env:
+    NODE_ENV: production
+    DEV_ENV: production	

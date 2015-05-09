@@ -42,6 +42,21 @@ exports.update = function(req, res) {
   });
 };
 
+// Updates an existing linkmanager in the DB.
+exports.upRank = function(req, res) {
+  if(req.body._id) { delete req.body._id; }
+  Linkmanager.findById(req.params.id, function (err, linkmanager) {
+    if (err) { return handleError(res, err); }
+    if(!linkmanager) { return res.send(404); }
+    linkmanager.rank = linkmanager.rank + 1;
+    // var updated = _.merge(linkmanager, req.body);
+    linkmanager.save(function (err) {
+      if (err) { return handleError(res, err); }
+      return res.json(200, linkmanager);
+    });
+  });
+};
+
 // Deletes a linkmanager from the DB.
 exports.destroy = function(req, res) {
   Linkmanager.findById(req.params.id, function (err, linkmanager) {
