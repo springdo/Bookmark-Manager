@@ -14,6 +14,12 @@ angular
       .when('/', {
         templateUrl: 'app/main/main.html',
         controller: 'MainCtrl'
+        // ,
+        // resolve: {
+        //   postPromise: ['BookmarkService', function(posts){
+        //     return BookmarkService.getAllBookmarks();
+        //   }]
+        // }
       })
       .when('/mybooks', {
         templateUrl: 'app/mybooks/mybooks.html',
