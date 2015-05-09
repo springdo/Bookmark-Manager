@@ -9,11 +9,12 @@
  */
 angular.module('bookmanagerApp')
   .controller('MyBooksCtrl', function ($scope, BookmarkService) {
-    var bookmarks = [{title: 'post 2', link: 'http://google.com', rank: 8, tag: 'blur'},
-		  {title: 'Thing', link: 'http://google.com', rank: 2, rank: 8, tag: "blah"},
-		  {title: 'postything', link: 'http://google.com', rank: 0, rank: 8, tag: "slug"},
-		  {title: 'other thing', link: 'http://google.com', rank: 23, rank: 8, tag: "blurg"},
-		  {title: 'post', link: 'http://google.com', rank: 5, rank: 8, tag: "blurg"}];
+    var bookmarks = [
+          {title: 'post 2', link: 'http://google.com', rank: 8, tag: 'blur'},
+		  {title: 'Thing', link: 'http://google.com', rank: 8, tag: "blah"},
+		  {title: 'postything', link: 'http://google.com', rank: 0, tag: "slug"},
+		  {title: 'other thing', link: 'http://google.com', rank: 23, tag: "blurg"},
+		  {title: 'post', link: 'http://google.com', rank: 5, tag: "blurg"}];
 
     var addBookmark = function (title){
 		if(!$scope.title || $scope.title === '' || !$scope.link || $scope.link === ''){

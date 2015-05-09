@@ -6,6 +6,7 @@
 'use strict';
 
 var Thing = require('../api/thing/thing.model');
+var Linkmanager = require('../api/linkmanager/linkmanager.model');
 
 
 Thing.find({}).remove(function() {
@@ -29,3 +30,15 @@ Thing.find({}).remove(function() {
     info : 'Easily deploy your app to Heroku or Openshift with the heroku and openshift subgenerators'
   });
 });
+
+
+Linkmanager.find({}).remove(function(){
+  Linkmanager.create({title: 'post 2', link: 'http://google.com', rank: 8, tag: 'blur'},
+      {title: 'Thing', link: 'http://google.com', rank: 8, tag: "blah"},
+      {title: 'postything', link: 'http://google.com', rank: 0, tag: "slug"},
+      {title: 'other thing', link: 'http://google.com', rank: 23, tag: "blurg"},
+      {title: 'post', link: 'http://google.com', rank: 5, tag: "blurg"});
+});
+
+//   {"title": "Thing", "link": "http://google.com", "rank": 8, "tag": "blah"},
+//    curl --data 'title=curltitle&link=ksadfj&rank=10000&tag=asdjfaksjdasd' http://localhost:9000/api/linkmanagers 
