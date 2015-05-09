@@ -7,7 +7,7 @@
  * # AboutCtrl
  * Controller of the bookmarkAppApp
  */
-angular.module('bookmarkAppApp')
+angular.module('bookmanagerApp')
   .controller('MyBooksCtrl', function ($scope, BookmarkService) {
     var bookmarks = [{title: 'post 2', link: 'http://google.com', rank: 8, tag: 'blur'},
 		  {title: 'Thing', link: 'http://google.com', rank: 2, rank: 8, tag: "blah"},

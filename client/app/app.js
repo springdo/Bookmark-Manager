@@ -1,24 +1,25 @@
 'use strict';
 
-angular.module('bookmanagerApp', [
-  'ngCookies',
-  'ngResource',
-  'ngSanitize',
-  'ui.router',
-  'ui.bootstrap'
-])
-  .config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
-    $urlRouterProvider
+angular
+  .module('bookmanagerApp', [
+    'ngAnimate',
+    'ngCookies',
+    'ngResource',
+    'ngRoute',
+    'ngSanitize',
+    'ngTouch'
+  ])
+  .config(function ($routeProvider) {
+    $routeProvider
       .when('/', {
-        templateUrl: 'main/main.html',
+        templateUrl: 'app/main/main.html',
         controller: 'MainCtrl'
       })
       .when('/mybooks', {
-        templateUrl: 'mybooks/mybooks.html',
+        templateUrl: 'app/mybooks/mybooks.html',
         controller: 'MyBooksCtrl'
       })
       .otherwise({
         redirectTo: '/'
       });
-    $locationProvider.html5Mode(true);
   });

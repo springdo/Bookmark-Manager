@@ -7,7 +7,7 @@
  * # MainCtrl
  * Controller of the bookmarkAppApp
  */
-angular.module('bookmarkAppApp')
+angular.module('bookmanagerApp')
   .controller('MainCtrl', function ($scope, BookmarkService) {
 
 
