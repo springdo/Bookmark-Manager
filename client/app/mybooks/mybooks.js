@@ -17,28 +17,12 @@ angular.module('bookmanagerApp')
 		  // {title: 'post', link: 'http://google.com', rank: 5, tag: "blurg"}];
 
     console.log("BookmarkService request - " + BookmarkService.getAllBookmarks());
-    var addBookmark = function (title){
-		if(!$scope.title || $scope.title === '' || !$scope.link || $scope.link === ''){
-		 return; 
-		}
-    	bookmarks.push({
-    			title: $scope.title,
-    			link: $scope.link,
-    			rank: 0,
-                tag: $scope.tag});
 
-
-    	//reset the title to empty
-    	$scope.title = '';
-    	$scope.link = '';
-
-
-    } 
-
-    var upRank = function (bookmark){
-    	bookmark.rank += 1;
-
-    }
+    $scope.upRank = function (bookmark){
+        console.log("bookmarks to upRank is - "+bookmark);
+        BookmarkService.upRank(bookmark);
+        BookmarkService.getAllBookmarks();
+    };
 
     var description = true;
     $scope.toggleDiv = function(){
@@ -66,11 +50,8 @@ angular.module('bookmanagerApp')
 
     $scope.getDescription = getDescription;
     $scope.description = description;
-
-    $scope.upRank = upRank;
     $scope.getIcon = getIcon;
     // $scope.toggleDiv = toggleDiv;
-    $scope.addBookmark = addBookmark;
     // bind scope's bookmarks to the 
     $scope.bookmarks = BookmarkService.bookmarks;
 

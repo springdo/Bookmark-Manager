@@ -11,11 +11,33 @@ angular.module('bookmanagerApp')
       
       bookmarks : [],
 
-      upRank: function(id_param) {
-        return $http.get('/api/linkmanagers/:id', function(data){
-          // update the rank on the ui
-            // angular.copy(data, bookmarks)
-        })
+      addNewBookmark : function(newBookmark){
+        return $http.post('/api/linkmanagers/', newBookmark).
+          success(function(data, status, headers, config) {
+            // this callback will be called asynchronously
+            // when the response is available
+            service.bookmarks.push(data);
+
+          }).
+          error(function(data, status, headers, config) {
+            // called asynchronously if an error occurs
+            // or server returns response with an error status.
+
+          });
+      },
+
+      upRank: function(bookmark) {
+        return $http.get('/api/linkmanagers/'+bookmark._id+'/upRank').
+          success(function(data, status, headers, config) {
+            // this callback will be called asynchronously
+            // when the response is available
+            console.log("BookmarkService upRank is - "+angular.fromJson(data));
+          }).
+          error(function(data, status, headers, config) {
+            // called asynchronously if an error occurs
+            // or server returns response with an error status.
+
+          });
       },
 
       getAllBookmarks : function (){

@@ -18,9 +18,6 @@
           <div class="form-group">
         <input type="text" class="form-control" placeholder="Tags" ng-model="tag"></input>
           </div>
-        <div class="form-group">
-        <input type="text" class="form-control" placeholder="Description" ng-model="desc"></input>
-          </div>
       <button class="btn btn-md btn-success btn-block" >
         <span class="glyphicon glyphicon-ok"></span>
         Add!
@@ -29,10 +26,10 @@
   </div>
   <div class="col-md-6 ">
     <h3 style="margin-top:30px;">Top Bookmarks</h3>
-    <div ng-repeat="bookmark in bookmarks | orderBy: '-rank'">
+    <div ng-repeat="bookmark in bookmarks | orderBy: '-rank' | limitTo:5">
       <!-- Bookmark :: {{bookmark.title}} - Rank {{bookmark.rank}} -->
       <span ng-click="upRank(bookmark)" class="glyphicon glyphicon-chevron-up"></span>
-        {{bookemark.rank}}
+        {{bookmark.rank}}
       <span style="font-size:20px; margin-left:10px;">        
         <a ng-show="bookmark.link" href="{{bookmark.link}}">
             {{bookmark.title}}
