@@ -2,7 +2,7 @@
 
 // Production specific configuration
 // =================================
-module.exports = {
+var config = {
   // Server IP
   ip:       process.env.OPENSHIFT_NODEJS_IP ||
             process.env.IP ||
@@ -20,4 +20,12 @@ module.exports = {
             process.env.OPENSHIFT_MONGODB_DB_URL+process.env.OPENSHIFT_APP_NAME ||
             'mongodb://localhost/bookmanager'
   }
-};
+}
+
+
+if (process.env.VCAP_SERVICES) {
+   var env = JSON.parse(process.env.VCAP_SERVICES);
+   config.mongo = env['mongodb-2.4'][0].credentials;
+}
+
+module.exports = config;
