@@ -1,6 +1,6 @@
 applications:
 - services:
-  - mongodb-6n
+  - mongodb-79
   command: node ./server/app.js
   disk_quota: 1024M
   host: bookmanager-app
